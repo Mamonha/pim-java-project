@@ -14,10 +14,22 @@ public class Main {
     public static void main(String[] args) {
 
         UsuarioRepository usuarioRepository = new UsuarioRepository();
-        List<Cliente> clientes = new ArrayList<>();
-        Usuario user = new Usuario(null, "asdaw", "awdfawf", clientes);
 
-        usuarioRepository.create(user);
+//        List<Cliente> clientes = new ArrayList<>();
+//        Usuario user = new Usuario(null, "asdaw", "awdfawf", null);
+//        Cliente cliente1 = new Cliente(null, "Jose Borges", "jose@gmail.com", "08897223907", user);
+//        Cliente cliente2 = new Cliente(null, "Jose Braga", "braga@gmail.com", "08837223907", user);
+//        clientes.add(cliente2);
+//        clientes.add(cliente1);
+//        user.setClientes(clientes);
+//        usuarioRepository.create(user);
+
+        Usuario userLogin = usuarioRepository.login("asdaw", "awdfawf");
+
+        System.out.println(userLogin.toString());
+        for (Cliente cliente: userLogin.getClientes() ) {
+            System.out.println(cliente.toString());
+        }
 
     }
 }
