@@ -15,7 +15,8 @@ public class VeiculoRepository implements CrudBasic{
     @Override
     public Object create(Object obj) {
         Veiculo veiculo = (Veiculo) obj;
-        return dao.create(veiculo);
+        dao.create(veiculo);
+        return veiculo;
     }
 
     @Override

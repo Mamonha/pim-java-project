@@ -100,4 +100,12 @@ public class DAO<E> {
         }
     }
 
+    public List findClientes(Long id) {
+        String jpql = "SELECT c from Cliente c where c.usuario.id = :id";
+        TypedQuery<E> query = em.createQuery(jpql, classe);
+        query.setParameter("id", id);
+        List<E> result = query.getResultList();
+        return result.isEmpty() ? null : result;
+    }
+
 }
