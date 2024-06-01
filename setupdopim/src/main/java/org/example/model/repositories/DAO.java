@@ -1,6 +1,5 @@
 package org.example.model.repositories;
 
-import org.example.model.entities.Usuario;
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.persistence.EntityManager;
@@ -64,12 +63,14 @@ public class DAO<E> {
         return this.openTransaction().remove(entity).closeTransaction();
     }
 
-    public List<E> getAllData() {
+    public List<E> getAllData(int quantity, int limit) {
         if (classe == null) {
             throw new UnsupportedOperationException("class null");
         }
         String jpql = "select e from " + classe.getName() + " e";
         TypedQuery<E> query = em.createQuery(jpql, classe);
+        query.setMaxResults(quantity);
+        query.setFirstResult(limit);
         return query.getResultList();
     }
 
@@ -77,27 +78,27 @@ public class DAO<E> {
         return em.find(classe, id);
     }
 
-//    public List<E> findAllData() {
-//        return this.getAllData();
-//    }
-
-
-    public E login(String login, String senha) {
-        String jpql = "SELECT u from Usuario u where u.login = :login";
-        TypedQuery<E> query = em.createQuery(jpql, classe);
-        query.setParameter("login", login);
-
-        List<E> result = query.getResultList();
-        if(result.isEmpty()) {
-            return null;
-        }
-
-        Usuario user = (Usuario) result.get(0);
-        if(BCrypt.checkpw(senha, user.getSenha())) {
-            return (E) user;
-        } else {
-            return null;
-        }
+    public List<E> findAllData() {
+        return this.getAllData(10, 0);
     }
+
+    //implementar no final
+//    public E login(String email, String senha) {
+//        String jpql = "SELECT u from UsuarioEntity u where u.email = :email";
+//        TypedQuery<E> query = em.createQuery(jpql, classe);
+//        query.setParameter("email", email);
+//
+//        List<E> result = query.getResultList();
+//        if(result.isEmpty()) {
+//            return null;
+//        }
+//
+//        UsuarioEntity user = (UsuarioEntity) result.get(0);
+//        if(BCrypt.checkpw(senha, user.getSenha())) {
+//            return (E) user;
+//        } else {
+//            return null;
+//        }
+//    }
 
 }

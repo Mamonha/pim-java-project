@@ -8,9 +8,6 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(indexes = {
-        @Index(name = "idx_login", columnList = "login")
-})
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -22,11 +19,9 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true)
     private String login;
     private String senha;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @ToString.Exclude
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Cliente> clientes;
 }
