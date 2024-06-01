@@ -26,7 +26,7 @@ public class VeiculosMotores {
     private Motor motor;
 
     @ManyToOne
-    @JoinColumn(name = "id_cliente_cliente")
+    @JoinColumn(name = "id_veiculo_cliente")
     private VeiculosClientes veiculosClientes;
 
 }
