@@ -1,6 +1,7 @@
 package org.example.model.repositories;
 
 import org.example.model.entities.Usuario;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.List;
 
@@ -14,27 +15,36 @@ public class UsuarioRepository implements CrudBasic{
 
     @Override
     public Object create(Object obj) {
-        Usuario user = (Usuario) obj;
-        return dao.create(user);
+        Usuario createUser = (Usuario)  obj;
+        String hashedPassword = BCrypt.hashpw(createUser.getSenha(), BCrypt.gensalt());
+        createUser.setSenha(hashedPassword);
+        dao.create(createUser);
+        return createUser;
     }
 
     @Override
     public void delete(Object obj) {
-
+        Usuario user = (Usuario)  obj;
+        dao.delete(user);
     }
 
     @Override
     public List findAll() {
-        return null;
+        return dao.getAllData();
     }
 
     @Override
     public Object findById(Long id) {
-        return null;
+        return dao.findById(id);
     }
 
     @Override
     public Object update(Object obj) {
-        return null;
+        Usuario user = (Usuario) obj;
+        return dao.update(user);
+    }
+
+    public Usuario login(String login, String senha) {
+        return dao.login(login, senha);
     }
 }
