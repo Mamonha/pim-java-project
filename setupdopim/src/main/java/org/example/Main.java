@@ -33,7 +33,7 @@ public class Main {
             System.out.println(clnt.toString());
         }
 
-
+        System.out.println("Alterado");
 //        List<Cliente> clientes = new ArrayList<>();
 //        Usuario user = new Usuario(null, "asdaw", "awdfawf", null)
 //        Cliente cliente1 = new Cliente(null, "Jose Borges", "jose@gmail.com", "08897223907", user);
