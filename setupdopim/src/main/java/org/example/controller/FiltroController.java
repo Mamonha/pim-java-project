@@ -1,40 +1,40 @@
 package org.example.controller;
 
-import org.example.model.entities.Veiculo;
-import org.example.model.repositories.VeiculoRepository;
+import org.example.model.entities.Filtro;
+import org.example.model.repositories.FiltroRepository;
 
 import java.util.List;
 
-public class VeiculoController implements CrudController<Veiculo> {
+public class FiltroController implements CrudController<Filtro> {
 
-    private VeiculoRepository veiculo;
+    private FiltroRepository filtro;
 
-    public VeiculoController() {
-        veiculo = new VeiculoRepository();
+    public FiltroController() {
+        filtro = new FiltroRepository();
     }
 
     @Override
-    public Veiculo create(Object obj) {
-        return (Veiculo) veiculo.create(obj);
+    public Filtro create(Object obj) {
+        return (Filtro) filtro.create(obj);
     }
 
     @Override
-    public Veiculo update(Object obj) {
-        return (Veiculo) veiculo.create(obj);
+    public Filtro update(Object obj) {
+        return (Filtro) filtro.create(obj);
     }
 
     @Override
     public void delete(Object obj) {
-
+        filtro.delete(obj);
     }
 
     @Override
-    public Veiculo findById(Long id) {
-        return (Veiculo) veiculo.findById(id);
+    public Filtro findById(Long id) {
+        return (Filtro) filtro.findById(id);
     }
 
     @Override
     public List findAll() {
-        return veiculo.findAll();
+        return filtro.findAll();
     }
 }

@@ -15,7 +15,8 @@ public class OleoRepository implements CrudBasic{
     @Override
     public Object create(Object obj) {
         Oleo oleo = (Oleo) obj;
-        return dao.create(oleo);
+        dao.create(oleo);
+        return oleo;
     }
 
     @Override

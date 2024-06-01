@@ -1,40 +1,40 @@
 package org.example.controller;
 
-import org.example.model.entities.Veiculo;
-import org.example.model.repositories.VeiculoRepository;
+import org.example.model.entities.Motor;
+import org.example.model.repositories.MotorRepository;
 
 import java.util.List;
 
-public class VeiculoController implements CrudController<Veiculo> {
+public class MotorController implements CrudController<Motor> {
 
-    private VeiculoRepository veiculo;
+    private MotorRepository motor;
 
-    public VeiculoController() {
-        veiculo = new VeiculoRepository();
+    public MotorController() {
+        motor = new MotorRepository();
     }
 
     @Override
-    public Veiculo create(Object obj) {
-        return (Veiculo) veiculo.create(obj);
+    public Motor create(Object obj) {
+        return (Motor) motor.create(obj);
     }
 
     @Override
-    public Veiculo update(Object obj) {
-        return (Veiculo) veiculo.create(obj);
+    public Motor update(Object obj) {
+        return (Motor) motor.create(obj);
     }
 
     @Override
     public void delete(Object obj) {
-        veiculo.delete(obj);
+        motor.delete(obj);
     }
 
     @Override
-    public Veiculo findById(Long id) {
-        return (Veiculo) veiculo.findById(id);
+    public Motor findById(Long id) {
+        return (Motor) motor.findById(id);
     }
 
     @Override
     public List findAll() {
-        return veiculo.findAll();
+        return motor.findAll();
     }
 }

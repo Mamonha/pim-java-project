@@ -1,40 +1,40 @@
 package org.example.controller;
 
-import org.example.model.entities.Veiculo;
-import org.example.model.repositories.VeiculoRepository;
+import org.example.model.entities.Oleo;
+import org.example.model.repositories.OleoRepository;
 
 import java.util.List;
 
-public class VeiculoController implements CrudController<Veiculo> {
+public class OleoController implements CrudController<Oleo> {
 
-    private VeiculoRepository veiculo;
+    private OleoRepository oleo;
 
-    public VeiculoController() {
-        veiculo = new VeiculoRepository();
+    public OleoController() {
+        oleo = new OleoRepository();
     }
 
     @Override
-    public Veiculo create(Object obj) {
-        return (Veiculo) veiculo.create(obj);
+    public Oleo create(Object obj) {
+        return (Oleo) oleo.create(obj);
     }
 
     @Override
-    public Veiculo update(Object obj) {
-        return (Veiculo) veiculo.create(obj);
+    public Oleo update(Object obj) {
+        return (Oleo) oleo.create(obj);
     }
 
     @Override
     public void delete(Object obj) {
-        veiculo.delete(obj);
+        oleo.delete(obj);
     }
 
     @Override
-    public Veiculo findById(Long id) {
-        return (Veiculo) veiculo.findById(id);
+    public Oleo findById(Long id) {
+        return (Oleo) oleo.findById(id);
     }
 
     @Override
     public List findAll() {
-        return veiculo.findAll();
+        return oleo.findAll();
     }
 }
