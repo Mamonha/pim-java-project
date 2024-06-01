@@ -23,7 +23,7 @@ public class Cliente {
     @Column(unique = true)
     private String cpf;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = true)
     @ToString.Exclude
     private Usuario usuario;
