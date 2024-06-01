@@ -28,7 +28,6 @@ public class MenuFiltros {
 
             switch (escolha) {
                 case 1:
-                    
                     sc.nextLine();
                     System.out.println("Cadastrar Filtro");
                     System.out.println("Digite a marca do filtro");
