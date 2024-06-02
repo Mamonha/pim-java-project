@@ -1,7 +1,8 @@
-package org.example;
+package org.example.view;
 
-public class CarroAsc {
-    public static void main(String[] args) {
+public class CarroAsciiArt {
+    public static void bemVindo (){
+
         String[] carro = {
                 "    _______",
                 "   /______/=,",
@@ -14,7 +15,6 @@ public class CarroAsc {
         for (String linha : carro) {
             System.out.println(linha);
         }
-        System.out.println("teste");
         System.out.println("  ____  _____ __  __  __     _____ _   _ ____   ___       _         ");
         System.out.println(" | __ )| ____|  \\/  | \\ \\   / /_ _| \\ | |  _ \\ / _ \\     / \\        ");
         System.out.println(" |  _ \\|  _| | |\\/| |  \\ \\ / / | ||  \\| | | | | | | |   / _ \\       ");
