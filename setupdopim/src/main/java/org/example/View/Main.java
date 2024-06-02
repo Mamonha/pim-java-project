@@ -19,7 +19,7 @@ public class Main {
         System.out.println("4 - Fazer uma Troca ");
         System.out.println("0 - sair");
 
-
+            System.out.println("print gitt add . push");
 
         int opcao = sc.nextInt();
         switch (opcao) {
