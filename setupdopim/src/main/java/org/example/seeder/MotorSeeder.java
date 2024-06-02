@@ -3,17 +3,21 @@ package org.example.seeder;
 import org.example.model.entities.Motor;
 import org.example.model.entities.Oleo;
 import org.example.model.entities.Filtro;
+import org.example.model.repositories.MotorRepository;
 import org.example.model.service.MotorService;
 import org.example.model.service.OleoService;
 import org.example.model.service.FiltroService;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MotorSeeder {
 
     private MotorService motorService;
     private OleoService oleoService;
     private FiltroService filtroService;
+    MotorRepository repo = new MotorRepository();
 
     public MotorSeeder(MotorService motorService, OleoService oleoService, FiltroService filtroService) {
         this.motorService = motorService;
@@ -39,17 +43,22 @@ public class MotorSeeder {
 //        };
 
         Motor motor = new Motor();
-        motor.setNome("1.0 8V L4 RN");
-
+        motor.setNome("1.0 8V L4");
         motorService.create(motor);
-        Oleo newOleo = new Oleo();
-        newOleo.setModelo("Mais pica");
-        newOleo.setMarca("Eletrolux");
-        newOleo.setEspecificacao("Chad");
-        oleoService.create(newOleo);
-        motor.setOleo(newOleo);
-        motorService.update(motor);
-        System.out.println(motor.getOleo().toString());
+
+        Oleo oleo = new Oleo();
+        oleo.setEspecificacao("T");
+        oleo.setMarca("D");
+        oleo.setModelo("AH");
+        oleoService.create(oleo);
+
+        motor.setOleo(oleo);
+
+        repo.update1(motor);
+//                System.out.println("Motor atualizado: " + motor);
+//            }
+//        }, 5000);
+
     }
 
     public static void main(String[] args) {
