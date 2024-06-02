@@ -20,7 +20,7 @@ public class Main {
         System.out.println("0 - sair");
 
             System.out.println("atualizaÇÃO"); //remover isso depois
-            ''
+            System.out.println("remove");
 
         int opcao = sc.nextInt();
         switch (opcao) {
