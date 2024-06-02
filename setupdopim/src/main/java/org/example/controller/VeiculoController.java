@@ -20,7 +20,7 @@ public class VeiculoController implements CrudController<Veiculo> {
 
     @Override
     public Veiculo update(Object obj) {
-        return (Veiculo) veiculo.create(obj);
+        return (Veiculo) veiculo.update(obj);
     }
 
     @Override
