@@ -23,11 +23,11 @@ public class VeiculosClientes {
     private String kilometragem;
     private LocalDate ultimaTroca;
 
-    @OneToMany(mappedBy = "veiculosClientes",cascade = CascadeType.ALL)
-    private List<VeiculosMotores> veiculosMotores;
+    @OneToMany(mappedBy = "veiculosClientes", cascade = CascadeType.ALL)
+    private List<VeiculosClientesMotores> veiculosClientesMotores;
 
     @ManyToOne
-    @JoinColumn(name = "id_cliente")
+    @JoinColumn(name = "id_cliente", nullable = false)
     private Cliente cliente;
 
 

@@ -21,6 +21,7 @@ public class Filtro {
     private String modelo;
 
     @OneToMany(mappedBy = "filtro")
+    @ToString.Exclude
     private List<Motor> motores;
 
 

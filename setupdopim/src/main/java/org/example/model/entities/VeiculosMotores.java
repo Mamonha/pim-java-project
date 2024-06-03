@@ -3,6 +3,7 @@ package org.example.model.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -17,16 +18,15 @@ public class VeiculosMotores {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_veiculo")
+    @ManyToOne
+    @JoinColumn(name = "id_veiculo", nullable = false)
     private Veiculo veiculo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_motor")
+    @ManyToOne
+    @JoinColumn(name = "id_motor", nullable = false)
     private Motor motor;
 
-    @ManyToOne
-    @JoinColumn(name = "id_veiculo_cliente")
-    private VeiculosClientes veiculosClientes;
+    @OneToMany(mappedBy = "veiculosMotores", cascade = CascadeType.ALL)
+    private List<VeiculosClientesMotores> veiculosClientesMotores;
 
 }
