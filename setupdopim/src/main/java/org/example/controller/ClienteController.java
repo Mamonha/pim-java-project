@@ -41,4 +41,8 @@ public class ClienteController implements CrudController<Cliente> {
     public List findClientes(Long id) {
         return cliente.findClientes(id);
     }
+
+    public Integer findQuantidadeDeClientes(Long id){
+        return cliente.findQuantidadeDeClientes(id);
+    }
 }

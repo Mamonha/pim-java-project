@@ -51,7 +51,7 @@ public class DAO<E> {
         return this;
     }
 
-    public DAO<E> update(E entity) {
+    public DAO<E> atualiza(E entity) {
         em.merge(entity);
         return this;
     }
@@ -62,6 +62,10 @@ public class DAO<E> {
 
     public DAO<E> delete(E entity) {
         return this.openTransaction().remove(entity).closeTransaction();
+    }
+
+    public DAO<E> update(E entity) {
+        return this.openTransaction().atualiza(entity).closeTransaction();
     }
 
     public List<E> getAllData() {
@@ -107,5 +111,15 @@ public class DAO<E> {
         List<E> result = query.getResultList();
         return result.isEmpty() ? null : result;
     }
+
+    public Integer findClientsNumber(Long id) {
+        String jpql = "SELECT count(c.id) from Cliente c WHERE c.usuario.id = :id";
+        TypedQuery<Long> query = em.createQuery(jpql, Long.class);
+        query.setParameter("id", id);
+        Long quantidade = query.getSingleResult();
+        return quantidade != null ? quantidade.intValue() : 0;
+    }
+
+
 
 }

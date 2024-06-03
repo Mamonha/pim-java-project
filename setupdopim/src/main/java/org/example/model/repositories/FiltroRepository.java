@@ -40,6 +40,7 @@ public class FiltroRepository implements CrudBasic{
     @Override
     public Object update(Object obj) {
         Filtro filtro = (Filtro) obj;
-        return dao.update(filtro);
+        dao.update(filtro);
+        return filtro;
     }
 }

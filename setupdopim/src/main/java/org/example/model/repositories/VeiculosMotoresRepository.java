@@ -39,6 +39,7 @@ public class VeiculosMotoresRepository implements CrudBasic {
     @Override
     public Object update(Object obj) {
         VeiculosMotores veiculo = (VeiculosMotores) obj;
-        return dao.update(veiculo);
+        dao.update(veiculo);
+        return veiculo;
     }
 }

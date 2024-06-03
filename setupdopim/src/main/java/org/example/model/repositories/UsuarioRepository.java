@@ -41,7 +41,8 @@ public class UsuarioRepository implements CrudBasic{
     @Override
     public Object update(Object obj) {
         Usuario user = (Usuario) obj;
-        return dao.update(user);
+        dao.update(user);
+        return user;
     }
 
     public Usuario login(String login, String senha) {

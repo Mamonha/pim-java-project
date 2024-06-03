@@ -40,4 +40,8 @@ public class ClienteService implements CrudInterface {
     public List findClientes(Long id){
         return cliente.findClientes(id);
     }
+
+    public Integer findQuantidadeDeClientes(Long id){
+        return cliente.findQuantidadeDeClientes(id);
+    }
 }
