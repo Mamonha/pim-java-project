@@ -37,4 +37,8 @@ public class VeiculoController implements CrudController<Veiculo> {
     public List findAll() {
         return veiculo.findAll();
     }
+
+    public List findVeiculosTipo(String type) {
+        return veiculo.findVeiculosTipo(type);
+    }
 }
