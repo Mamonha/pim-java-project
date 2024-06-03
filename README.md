@@ -16,6 +16,8 @@ Este projeto é um software em Java desenvolvido para a gestão de troca de óle
 
 - **MySQL Connector**: Conector JDBC para conectar o software a um banco de dados MySQL.
 - Mindrot: Biblioteca utilizada para hashing de senhas utilizando o algoritmo BCrypt
+
+## Agradecimentos
 ![Logo](https://fael.edu.br/upload/noticias/topo/senna-01-26-09-19-103836.png)
 
 ![Logo](https://media.licdn.com/dms/image/C4D16AQFqHIEt-V7wqA/profile-displaybackgroundimage-shrink_350_1400/0/1664287777044?e=1723075200&v=beta&t=hEC-7MJgG3PM4LFpHXeiLtYGM3dah8cuW3p4QEw4v6k)
