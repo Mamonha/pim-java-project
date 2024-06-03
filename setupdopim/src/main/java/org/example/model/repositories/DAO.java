@@ -108,4 +108,13 @@ public class DAO<E> {
         return result.isEmpty() ? null : result;
     }
 
+    public List<E> findVeiculosTipo(String type) {
+        String jpql = "SELECT v from Veiculo v where v.tipo = :type";
+        TypedQuery<E> query = em.createQuery(jpql, classe);
+        query.setParameter("type", type);
+        List<E> result = query.getResultList();
+        return result.isEmpty() ? null : result;
+    }
+
+
 }

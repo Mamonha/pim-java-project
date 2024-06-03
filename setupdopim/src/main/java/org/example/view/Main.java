@@ -6,6 +6,7 @@ import static org.example.view.CarroAsciiArt.bemVindo;
 import static org.example.view.MenuFiltros.menuFiltros;
 import static org.example.view.MenuVeiculo.menuVeiculo;
 import static org.example.view.MenuOleos.menuOleos;
+import static org.example.view.EstimateValue.show;
 import static org.example.view.CarroAsciiArt.bemVindo;
 
 public class Main {
@@ -18,7 +19,7 @@ public class Main {
         System.out.println("1 - Gerenciar Filtros");
         System.out.println("2 - Gerenciar Óleos");
         System.out.println("3 - Gerenciar Veiculos");
-        System.out.println("4 - Fazer uma Troca ");
+        System.out.println("4 - Orçamento ");
         System.out.println("0 - sair");
 
             System.out.println("print gitt add . push");
@@ -35,7 +36,7 @@ public class Main {
                 menuVeiculo();
                 break;
             case 4:
-
+                show();
                 break;
             case 0:
                 System.out.println("Saindo!");
