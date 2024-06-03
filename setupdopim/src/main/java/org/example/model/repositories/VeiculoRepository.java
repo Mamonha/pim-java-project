@@ -41,4 +41,9 @@ public class VeiculoRepository implements CrudBasic{
         dao.update(veiculo);
         return veiculo;
     }
+
+    public List findVeiculosTipo(String type){
+        return dao.findVeiculosTipo(type);
+    }
+
 }
