@@ -40,10 +40,15 @@ public class ClienteRepository implements CrudBasic{
     @Override
     public Object update(Object obj) {
         Cliente cliente = (Cliente) obj;
-        return dao.update(cliente);
+        dao.update(cliente);
+        return cliente;
     }
 
     public List findClientes(Long id){
         return dao.findClientes(id);
+    }
+
+    public Integer findQuantidadeDeClientes(Long id){
+        return dao.findClientsNumber(id);
     }
 }

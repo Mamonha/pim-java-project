@@ -10,6 +10,7 @@ public class VeiculosClientesController implements CrudController<VeiculosClient
     private VeiculosCLientesService veiculo;
 
 
+
     public VeiculosClientesController() {
         this.veiculo = new VeiculosCLientesService();
     }
