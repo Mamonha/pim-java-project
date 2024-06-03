@@ -41,4 +41,13 @@ public class MotorRepository implements CrudBasic{
         Motor motor = (Motor) obj;
         return dao.update(motor);
     }
+
+    public DAO<Motor> update1(Object object) {
+        Motor novoMotor = (Motor) object;
+        dao.openTransaction();
+        DAO<Motor> atualizado = dao.update(novoMotor);
+        dao.closeTransaction();
+        return atualizado;
+    }
+
 }
