@@ -3,8 +3,6 @@ package org.example.model.entities;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
-
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,23 +10,18 @@ import java.util.List;
 @Setter
 @EqualsAndHashCode(of = "id")
 @ToString
-public class Motor {
+public class VeiculosClientesMotores {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
-
-    @OneToMany(mappedBy = "motor")
-    List<VeiculosMotores> veiculosMotores;
 
     @ManyToOne
-    @JoinColumn(name = "id_oleo")
-    Oleo oleo;
+    @JoinColumn(name = "id_veiculo_cliente", nullable = false)
+    private VeiculosClientes veiculosClientes;
 
     @ManyToOne
-    @JoinColumn(name = "id_filtro")
-    Filtro filtro;
-
+    @JoinColumn(name = "id_veiculo_motor", nullable = false)
+    private VeiculosMotores veiculosMotores;
 
 }
