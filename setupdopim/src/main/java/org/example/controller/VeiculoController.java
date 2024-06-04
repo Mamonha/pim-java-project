@@ -41,4 +41,11 @@ public class VeiculoController implements CrudController<Veiculo> {
     public List findVeiculosTipo(String type) {
         return veiculo.findVeiculosTipo(type);
     }
+
+    public List<Veiculo> findVeiculosModelos(String marca) {return veiculo.findVeiculosModelos(marca); }
+
+    public List<Veiculo> findVeiculosAno(Integer ano) {return veiculo.findVeiculosAno(ano); }
+
+
+
 }

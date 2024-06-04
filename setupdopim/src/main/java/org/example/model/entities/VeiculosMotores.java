@@ -29,4 +29,35 @@ public class VeiculosMotores {
     @OneToMany(mappedBy = "veiculosMotores", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<VeiculosClientesMotores> veiculosClientesMotores;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
+    }
+
+    public Motor getMotor() {
+        return motor;
+    }
+
+    public void setMotor(Motor motor) {
+        this.motor = motor;
+    }
+
+    public List<VeiculosClientesMotores> getVeiculosClientesMotores() {
+        return veiculosClientesMotores;
+    }
+
+    public void setVeiculosClientesMotores(List<VeiculosClientesMotores> veiculosClientesMotores) {
+        this.veiculosClientesMotores = veiculosClientesMotores;
+    }
 }
