@@ -18,15 +18,15 @@ public class VeiculosMotores {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_veiculo", nullable = false)
     private Veiculo veiculo;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_motor", nullable = false)
     private Motor motor;
 
-    @OneToMany(mappedBy = "veiculosMotores", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "veiculosMotores", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<VeiculosClientesMotores> veiculosClientesMotores;
 
 }

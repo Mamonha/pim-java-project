@@ -40,4 +40,8 @@ public class VeiculosClientesMotoresRepository implements CrudBasic {
         dao.update(veiculosClientesMotores);
         return veiculosClientesMotores;
     }
+
+    public Object findByPlaca(String placa) {
+        return dao.findByPlaca(placa);
+    }
 }
