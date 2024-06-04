@@ -16,11 +16,11 @@ public class VeiculosClientesMotores {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_veiculo_cliente", nullable = false)
     private VeiculosClientes veiculosClientes;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_veiculo_motor", nullable = false)
     private VeiculosMotores veiculosMotores;
 

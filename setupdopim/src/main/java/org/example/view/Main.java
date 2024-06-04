@@ -9,6 +9,7 @@ import java.util.Scanner;
 import static org.example.view.CarroAsciiArt.bemVindo;
 import static org.example.view.CarroAsciiArt.bemVindo;
 import static org.example.view.ClientesMenu.clienteMenu;
+import static org.example.view.ClientesMenu.mostrarCarro;
 
 public class Main {
 
@@ -18,6 +19,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         UsuarioController userController = new UsuarioController();
         bemVindo();
+
         while(usuario == null) {
             System.out.println("Digite 1 para fazer login ou 2 para cadastrar-se no sistema! ");
             int opc = sc.nextInt();
@@ -54,7 +56,6 @@ public class Main {
         }
 
 
-
         bemVindo();
         System.out.println("Bem vindo: " + usuario.getLogin());
 
@@ -63,24 +64,13 @@ public class Main {
         while (mantemLoop == true) {
         System.out.println("Escolha uma opção abaixo");
         System.out.println("1 - Gerenciar Clientes");
-        System.out.println("2 - Gerenciar Usuario");
         System.out.println("0 - sair");
 
-            System.out.println("print gitt add . push");
 
         int opcao = sc.nextInt();
         switch (opcao) {
             case 1:
                 clienteMenu();
-                break;
-            case 2:
-
-                break;
-            case 3:
-
-                break;
-            case 4:
-
                 break;
             case 0:
                 System.out.println("Saindo!");
