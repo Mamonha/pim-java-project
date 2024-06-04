@@ -17,7 +17,8 @@ public class FiltroRepository implements CrudBasic{
     @Override
     public Object create(Object obj) {
         Filtro filtro = (Filtro) obj;
-        return dao.create(filtro);
+        dao.create(filtro);
+        return filtro;
     }
 
     @Override
@@ -39,6 +40,7 @@ public class FiltroRepository implements CrudBasic{
     @Override
     public Object update(Object obj) {
         Filtro filtro = (Filtro) obj;
-        return dao.update(filtro);
+        dao.update(filtro);
+        return filtro;
     }
 }

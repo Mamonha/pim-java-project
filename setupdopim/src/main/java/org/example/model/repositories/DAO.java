@@ -100,4 +100,31 @@ public class DAO<E> {
         }
     }
 
+    public List findClientes(Long id) {
+        String jpql = "SELECT c from Cliente c where c.usuario.id = :id";
+        TypedQuery<E> query = em.createQuery(jpql, classe);
+        query.setParameter("id", id);
+        List<E> result = query.getResultList();
+        return result.isEmpty() ? null : result;
+    }
+
+    public List<E> findVeiculosTipo(String type) {
+        String jpql = "SELECT v from Veiculo v where v.tipo = :type";
+        TypedQuery<E> query = em.createQuery(jpql, classe);
+        query.setParameter("type", type);
+        List<E> result = query.getResultList();
+        return result.isEmpty() ? null : result;
+    }
+
+
+    public Integer findClientsNumber(Long id) {
+        String jpql = "SELECT count(c.id) from Cliente c WHERE c.usuario.id = :id";
+        TypedQuery<Long> query = em.createQuery(jpql, Long.class);
+        query.setParameter("id", id);
+        Long quantidade = query.getSingleResult();
+        return quantidade != null ? quantidade.intValue() : 0;
+    }
+
+
+
 }

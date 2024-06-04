@@ -16,7 +16,8 @@ public class MotorRepository implements CrudBasic{
     @Override
     public Object create(Object obj) {
         Motor motor = (Motor) obj;
-        return dao.create(motor);
+        dao.create(motor);
+        return motor;
     }
 
     @Override
@@ -38,6 +39,16 @@ public class MotorRepository implements CrudBasic{
     @Override
     public Object update(Object obj) {
         Motor motor = (Motor) obj;
-        return dao.update(motor);
+        dao.update(motor);
+        return motor;
     }
+
+    public DAO<Motor> update1(Object object) {
+        Motor novoMotor = (Motor) object;
+        dao.openTransaction();
+        DAO<Motor> atualizado = dao.update(novoMotor);
+        dao.closeTransaction();
+        return atualizado;
+    }
+
 }

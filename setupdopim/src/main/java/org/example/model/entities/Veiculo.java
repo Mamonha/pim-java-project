@@ -24,5 +24,6 @@ public class Veiculo {
     private Integer ano;
 
     @OneToMany(mappedBy = "veiculo")
+    @ToString.Exclude
     private List<VeiculosMotores> veiculosMotores;
 }

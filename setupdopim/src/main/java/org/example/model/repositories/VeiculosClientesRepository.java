@@ -1,27 +1,29 @@
 package org.example.model.repositories;
 
-import org.example.model.entities.Veiculo;
+
+import org.example.model.entities.VeiculosClientes;
 
 import java.util.List;
 
-public class VeiculoRepository implements CrudBasic{
+public class VeiculosClientesRepository implements CrudBasic{
 
-    private DAO<Veiculo> dao;
+    private DAO<VeiculosClientes> dao;
 
-    public VeiculoRepository() {
-        this.dao = new DAO<Veiculo>(Veiculo.class);
+    public VeiculosClientesRepository() {
+        this.dao = new DAO<VeiculosClientes>(VeiculosClientes.class);
     }
+
 
     @Override
     public Object create(Object obj) {
-        Veiculo veiculo = (Veiculo) obj;
+        VeiculosClientes veiculo = (VeiculosClientes) obj;
         dao.create(veiculo);
         return veiculo;
     }
 
     @Override
     public void delete(Object obj) {
-        Veiculo veiculo = (Veiculo) obj;
+        VeiculosClientes veiculo = (VeiculosClientes) obj;
         dao.delete(veiculo);
     }
 
@@ -37,13 +39,8 @@ public class VeiculoRepository implements CrudBasic{
 
     @Override
     public Object update(Object obj) {
-        Veiculo veiculo = (Veiculo) obj;
+        VeiculosClientes veiculo = (VeiculosClientes) obj;
         dao.update(veiculo);
         return veiculo;
     }
-
-    public List findVeiculosTipo(String type){
-        return dao.findVeiculosTipo(type);
-    }
-
 }
