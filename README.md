@@ -15,7 +15,7 @@ Este projeto é um software em Java desenvolvido para a gestão de troca de óle
 - **Hibernate**: Framework de mapeamento objeto-relacional (ORM) para o Java, facilitando a manipulação de dados no banco de dados.
 
 - **MySQL Connector**: Conector JDBC para conectar o software a um banco de dados MySQL.
-- Mindrot: Biblioteca utilizada para hashing de senhas utilizando o algoritmo BCrypt
+- **Mindrot**: Biblioteca utilizada para hashing de senhas utilizando o algoritmo BCrypt
 
 ## Agradecimentos
 ![Logo](https://fael.edu.br/upload/noticias/topo/senna-01-26-09-19-103836.png)
