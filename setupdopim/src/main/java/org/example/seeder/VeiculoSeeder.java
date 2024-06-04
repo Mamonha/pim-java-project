@@ -40,7 +40,7 @@ public class VeiculoSeeder {
         }
     }
 
-    public static void main(String[] args) {
+    public static void runVeiculo() {
         VeiculoService service = new VeiculoService();
         VeiculoSeeder seeder = new VeiculoSeeder(service);
         seeder.seed();

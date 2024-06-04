@@ -70,7 +70,7 @@ public class OleoSeeder {
 
     }
 
-    public static void main(String[] args) {
+    public static void runOleo() {
         OleoService service = new OleoService();
         OleoSeeder seeder = new OleoSeeder(service);
         seeder.seed();
