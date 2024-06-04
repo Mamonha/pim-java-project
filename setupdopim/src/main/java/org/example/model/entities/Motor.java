@@ -22,11 +22,11 @@ public class Motor {
     @OneToMany(mappedBy = "motor")
     List<VeiculosMotores> veiculosMotores;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_oleo")
     Oleo oleo;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_filtro")
     Filtro filtro;
 

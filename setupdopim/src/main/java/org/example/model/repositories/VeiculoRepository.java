@@ -46,4 +46,5 @@ public class VeiculoRepository implements CrudBasic{
         return dao.findVeiculosTipo(type);
     }
 
+
 }

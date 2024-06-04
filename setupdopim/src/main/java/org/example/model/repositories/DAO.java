@@ -1,12 +1,11 @@
 package org.example.model.repositories;
 
 import org.example.model.entities.Usuario;
+import org.example.model.entities.VeiculosClientes;
+import org.example.model.entities.VeiculosClientesMotores;
 import org.mindrot.jbcrypt.BCrypt;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.util.List;
 
 public class DAO<E> {
@@ -125,6 +124,19 @@ public class DAO<E> {
         return quantidade != null ? quantidade.intValue() : 0;
     }
 
+    public VeiculosClientesMotores findByPlaca(String placa) {
+        String jpql = "SELECT vcm FROM VeiculosClientesMotores vcm " +
+                "JOIN vcm.veiculosClientes vc " +
+                "WHERE vc.placa = :placa";
+        TypedQuery<VeiculosClientesMotores> query = em.createQuery(jpql, VeiculosClientesMotores.class);
+        query.setParameter("placa", placa);
+        try {
+            return query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+
+    }
 
 
 }
