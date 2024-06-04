@@ -155,39 +155,9 @@ public class MotorSeeder {
         motor12.setFiltro(filtro13);
         motor12.setOleo(newOleo13);
         repo.update1(motor12);
-
-        List<MotorInfo> motores = Arrays.asList(
-                new MotorInfo("1.0 8V L4 RENAULT", 2L, 5L),
-                new MotorInfo("2.0 8V MPFI L4", 3L, 3L),
-                new MotorInfo("1.4 8V MPFI L4", 4L, 3L),
-                new MotorInfo("2.0 16V K20 L4", 4L, 5L),
-                new MotorInfo("2.0 16V L4", 4L, 1L),
-                new MotorInfo("1.0 8V L4", 6L, 3L),
-                new MotorInfo("1.6 8V MSI L4", 7L, 2L),
-                new MotorInfo("1.6 8V EA827 L4", 1L, 2L),
-                new MotorInfo("1.0 8V L4", 1L, 5L),
-                new MotorInfo("1.0 12V L3", 4L, 5L),
-                new MotorInfo("1.8 16v L4", 4L, 7L),
-                new MotorInfo("1.6 16v L4", 2L, 6L),
-                new MotorInfo("1.4 8V L4", 2L, 6L)
-
-        );
-
-        for (MotorInfo info : motores) {
-            Motor motorRoi = new Motor();
-            motor.setNome(info.nome);
-            motorService.create(motor);
-            Oleo oleo = (Oleo) oleoService.findById(info.idOleo);
-            Filtro filtro = (Filtro) filtroService.findById(info.idFiltro);
-            motor.setFiltro(filtro);
-            motor.setOleo(oleo);
-            repo.update1(motorRoi);
-        }
     }
 
-
-
-    public static void main(String[] args) {
+    public static void runMotor() {
         MotorService motorService = new MotorService();
         OleoService oleoService = new OleoService();
         FiltroService filtroService = new FiltroService();
