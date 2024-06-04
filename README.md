@@ -27,4 +27,4 @@ Este projeto é um software em Java desenvolvido para a gestão de troca de óle
 ### Patrocínio 
 
 ![Logo](https://cdn.motor1.com/images/mgl/zOg34/s3/logo-peugeot-2021.jpg)
-![Logo](https://galeria.gvonibus.com.br/images/album/356-1601647134-Via_C_eo-Garcia.png)
+
