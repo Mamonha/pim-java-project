@@ -83,7 +83,7 @@ public class VeiculoMotorSeeder {
         veiculosMotoresController.create(v19);
     }
 
-    public static void main(String[] args) {
+    public static void runVeiculoMotor() {
         veiculoMotor();
     }
 }

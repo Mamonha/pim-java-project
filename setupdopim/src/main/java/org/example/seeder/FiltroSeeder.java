@@ -50,7 +50,7 @@ public class FiltroSeeder {
         }
     }
 
-    public static void main(String[] args) {
+    public static void runFiltro() {
         FiltroService service = new FiltroService();
         FiltroSeeder seeder = new FiltroSeeder(service);
         seeder.seed();
