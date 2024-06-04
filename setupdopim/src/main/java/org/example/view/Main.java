@@ -10,16 +10,15 @@ import static org.example.view.CarroAsciiArt.bemVindo;
 import static org.example.view.CarroAsciiArt.bemVindo;
 import static org.example.view.ClientesMenu.clienteMenu;
 import static org.example.view.ClientesMenu.mostrarCarro;
+import static org.example.view.EstimateValue.show;
 
 public class Main {
 
     public static Usuario usuario = null;
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         UsuarioController userController = new UsuarioController();
         bemVindo();
-
         while(usuario == null) {
             System.out.println("Digite 1 para fazer login ou 2 para cadastrar-se no sistema! ");
             int opc = sc.nextInt();
@@ -59,11 +58,11 @@ public class Main {
         bemVindo();
         System.out.println("Bem vindo: " + usuario.getLogin());
 
-
         boolean mantemLoop = true;
         while (mantemLoop == true) {
         System.out.println("Escolha uma opção abaixo");
         System.out.println("1 - Gerenciar Clientes");
+        System.out.println("2 - Orçamento");
         System.out.println("0 - sair");
 
 
@@ -72,6 +71,8 @@ public class Main {
             case 1:
                 clienteMenu();
                 break;
+            case 2:
+                show();
             case 0:
                 System.out.println("Saindo!");
                 mantemLoop = false;

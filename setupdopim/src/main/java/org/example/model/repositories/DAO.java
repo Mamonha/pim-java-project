@@ -115,6 +115,22 @@ public class DAO<E> {
         return result.isEmpty() ? null : result;
     }
 
+    public List<E> findVeiculosModelo(String type) {
+        String jpql = "SELECT v from Veiculo v where v.marca = :type";
+        TypedQuery<E> query = em.createQuery(jpql, classe);
+        query.setParameter("type", type);
+        List<E> result = query.getResultList();
+        return result.isEmpty() ? null : result;
+    }
+
+    public List<E> findVeiculosAno(Integer ano) {
+        String jpql = "SELECT v from Veiculo v where v.ano = :type";
+        TypedQuery<E> query = em.createQuery(jpql, classe);
+        query.setParameter("type", ano);
+        List<E> result = query.getResultList();
+        return result.isEmpty() ? null : result;
+    }
+
 
     public Integer findClientsNumber(Long id) {
         String jpql = "SELECT count(c.id) from Cliente c WHERE c.usuario.id = :id";
