@@ -42,10 +42,7 @@ public class VeiculoRepository implements CrudBasic{
         return veiculo;
     }
 
-    public List findVeiculosTipo(String type){return dao.findVeiculosTipo(type);}
-
-
     public List<Veiculo> findVeiculosModelos(String marca) {return dao.findVeiculosModelo(marca);}
 
-    public List<Veiculo> findVeiculosAno(Integer ano) {return dao.findVeiculosAno(ano);}
+    public List<Veiculo> findVeiculosAno(Integer ano, String modelo) {return dao.findVeiculosAno(ano, modelo);}
 }

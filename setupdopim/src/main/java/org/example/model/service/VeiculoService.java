@@ -37,8 +37,6 @@ public class VeiculoService implements CrudInterface{
         return veiculo.findAll();
     }
 
-    public List findVeiculosTipo(String type){
-        return veiculo.findVeiculosTipo(type);
-    }
+
 
 }
