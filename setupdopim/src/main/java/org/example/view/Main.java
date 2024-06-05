@@ -18,6 +18,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         UsuarioController userController = new UsuarioController();
+
         bemVindo();
         while(usuario == null) {
             System.out.println("Digite 1 para fazer login ou 2 para cadastrar-se no sistema! ");
@@ -73,6 +74,7 @@ public class Main {
                 break;
             case 2:
                 show();
+                break;
             case 0:
                 System.out.println("Saindo!");
                 mantemLoop = false;

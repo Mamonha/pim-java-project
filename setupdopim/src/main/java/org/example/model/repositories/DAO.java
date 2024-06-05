@@ -107,14 +107,6 @@ public class DAO<E> {
         return result.isEmpty() ? null : result;
     }
 
-    public List<E> findVeiculosTipo(String type) {
-        String jpql = "SELECT v from Veiculo v where v.tipo = :type";
-        TypedQuery<E> query = em.createQuery(jpql, classe);
-        query.setParameter("type", type);
-        List<E> result = query.getResultList();
-        return result.isEmpty() ? null : result;
-    }
-
     public List<E> findVeiculosModelo(String type) {
         String jpql = "SELECT v from Veiculo v where v.marca = :type";
         TypedQuery<E> query = em.createQuery(jpql, classe);
@@ -123,10 +115,11 @@ public class DAO<E> {
         return result.isEmpty() ? null : result;
     }
 
-    public List<E> findVeiculosAno(Integer ano) {
-        String jpql = "SELECT v from Veiculo v where v.ano = :type";
+    public List<E> findVeiculosAno(Integer ano, String modelo) {
+        String jpql = "SELECT v from Veiculo v where v.ano = :year and v.modelo= :type";
         TypedQuery<E> query = em.createQuery(jpql, classe);
-        query.setParameter("type", ano);
+        query.setParameter("year", ano);
+        query.setParameter("type", modelo);
         List<E> result = query.getResultList();
         return result.isEmpty() ? null : result;
     }
