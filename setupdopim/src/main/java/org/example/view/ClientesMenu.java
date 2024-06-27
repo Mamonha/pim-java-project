@@ -7,7 +7,6 @@ import org.example.model.entities.VeiculosClientesMotores;
 import org.example.model.entities.VeiculosMotores;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 

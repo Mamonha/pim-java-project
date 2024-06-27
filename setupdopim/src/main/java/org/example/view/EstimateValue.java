@@ -6,12 +6,10 @@ import org.example.controller.VeiculosMotoresController;
 import org.example.model.entities.Motor;
 import org.example.model.entities.Veiculo;
 import org.example.model.entities.VeiculosMotores;
-import org.example.model.service.VeiculoService;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import static org.example.view.Main.usuario;
 
 public class EstimateValue {
 
