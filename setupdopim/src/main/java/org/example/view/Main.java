@@ -1,15 +1,11 @@
 package org.example.view;
 
-import jdk.dynalink.beans.StaticClass;
 import org.example.controller.UsuarioController;
 import org.example.model.entities.Usuario;
 
 import java.util.Scanner;
 
-import static org.example.view.CarroAsciiArt.bemVindo;
-import static org.example.view.CarroAsciiArt.bemVindo;
 import static org.example.view.ClientesMenu.clienteMenu;
-import static org.example.view.ClientesMenu.mostrarCarro;
 import static org.example.view.EstimateValue.show;
 
 public class Main {
@@ -18,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         UsuarioController userController = new UsuarioController();
-
+    /*
         bemVindo();
         while(usuario == null) {
             System.out.println("Digite 1 para fazer login ou 2 para cadastrar-se no sistema! ");
@@ -58,7 +54,7 @@ public class Main {
 
         bemVindo();
         System.out.println("Bem vindo: " + usuario.getLogin());
-
+*/
         boolean mantemLoop = true;
         while (mantemLoop == true) {
         System.out.println("Escolha uma opção abaixo");

@@ -103,11 +103,10 @@ public class FeatureMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiAdmiPacientesActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-          JIFAgendar telaAgendar = new JIFAgendar ();
-          jDesktop.add(telaAgendar);
-          telaAgendar.setVisible(true);
-          telaAgendar.setPosicao();
-
+          EstimateValueSwing TelaestimateValue = new EstimateValueSwing ();
+          jDesktop.add(TelaestimateValue);
+          TelaestimateValue.setVisible(true);
+          TelaestimateValue.setPosicao();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     public void startSeeding() {

@@ -8,12 +8,12 @@ package org.example.viewSwing;
  *
  * @author Queiro Ubeda
  */
-abstract public class InternalForme extends javax.swing.JInternalFrame {
+abstract public class JIFConsultaPlaca extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form InternalForme
      */
-    public InternalForme() {
+    public JIFConsultaPlaca() {
 
         initComponents();
         ativarBotoes(true);
@@ -52,7 +52,6 @@ abstract public class InternalForme extends javax.swing.JInternalFrame {
         );
 
         jpTable.setBackground(new java.awt.Color(5, 113, 189));
-        jpTable.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jpTableLayout = new javax.swing.GroupLayout(jpTable);
         jpTable.setLayout(jpTableLayout);

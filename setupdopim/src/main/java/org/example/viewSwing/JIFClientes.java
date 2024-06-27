@@ -8,14 +8,12 @@ package org.example.viewSwing;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import java.util.List;
 import org.example.controller.ClienteController;
 import org.example.model.entities.Cliente;
+import static org.example.viewSwing.FeatureMain.jDesktop;
 //OK
 
 /**
@@ -310,7 +308,11 @@ import org.example.model.entities.Cliente;
             ativarBotoes(true);
             boolean erro = false;
             Cliente cliente = new Cliente();
-
+            EstimateValueSwing telaEstimateValue =new EstimateValueSwing();
+            jDesktop.add(telaEstimateValue);
+            telaEstimateValue.setVisible(true);
+            telaEstimateValue.setPosicao();
+            
             if (textNome.getText().trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Nome Inválido");
                 erro = true;
