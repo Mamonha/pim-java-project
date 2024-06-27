@@ -211,7 +211,7 @@ public class FeatureMain extends javax.swing.JFrame {
         SwingUtilities.invokeLater(() -> {
         FeatureMain frame = new FeatureMain();
         frame.setVisible(true);
-        //frame.startSeeding();
+        frame.startSeeding();
     });
     }
     

@@ -5,16 +5,25 @@
 package org.example.viewSwing;
 
 import java.awt.Dimension;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
+import org.example.controller.ClienteController;
 import org.example.controller.MotorController;
 import org.example.controller.VeiculoController;
+import org.example.controller.VeiculosClientesController;
+import org.example.controller.VeiculosClientesMotoresController;
 import org.example.controller.VeiculosMotoresController;
+import org.example.model.entities.Cliente;
 import org.example.model.entities.Motor;
 import org.example.model.entities.Veiculo;
+import org.example.model.entities.VeiculosClientes;
+import org.example.model.entities.VeiculosClientesMotores;
 import org.example.model.entities.VeiculosMotores;
+import static org.example.viewSwing.FeatureMain.jDesktop;
 
 /**
  *
@@ -23,7 +32,11 @@ import org.example.model.entities.VeiculosMotores;
 public class EstimateValueSwing extends javax.swing.JInternalFrame {
 
     VeiculoController veiculocontroller = new VeiculoController();
+    VeiculosClientesController veiculosClientesController = new VeiculosClientesController();
+    VeiculosClientesMotoresController veiculosClientesMotoresController = new VeiculosClientesMotoresController();
     MotorController motorController = new MotorController();
+    Cliente cliente = new Cliente();
+    ClienteController clienteController = new ClienteController();
     
     /**
      * Creates new form InternalForme
@@ -321,49 +334,121 @@ public class EstimateValueSwing extends javax.swing.JInternalFrame {
 
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
         Veiculo veiculo = new Veiculo();
-    Motor motor = new Motor();
-    
-    Object selectedItem = jComboBox3.getSelectedItem();
-    if (selectedItem != null) {
-        String selectedString = selectedItem.toString();
-        String[] parts = selectedString.split(" ");
-        if (parts.length > 0) {
-            Long id = Long.valueOf(parts[0]);
-            veiculo = veiculocontroller.findById(id);
-        } else {
-            JOptionPane.showMessageDialog(null, "Erro ao obter ID"); 
-        }
-    } else {
-        JOptionPane.showMessageDialog(null, "Ano não selecionado");
-        return;
-    }
+        Motor motor = new Motor();
 
-    if (jComboBox4.getSelectedIndex() == 0) {
-        JOptionPane.showMessageDialog(null, "Marca do Motor não selecionada");
-    } else {
-        selectedItem = jComboBox4.getSelectedItem();
-        if (selectedItem != null) {
-            String selectedString = selectedItem.toString();
-            String[] parts = selectedString.split(" ");
-            if (parts.length > 0) {
-                Long id = Long.valueOf(parts[0]);
-                motor = motorController.findById(id);
-                VeiculosMotoresController veiculosMotoresController = new VeiculosMotoresController();
-
-                VeiculosMotores veiculosMotores = new VeiculosMotores();
-                veiculosMotores.setMotor(motor);
-                veiculosMotores.setVeiculo(veiculo);
-
-                veiculosMotoresController.create(veiculosMotores);
-                
-                Recomendacoes(veiculosMotores);
+        
+        Object selectedItemVeiculo = jComboBox3.getSelectedItem();
+        if (selectedItemVeiculo != null) {
+            String selectedStringVeiculo = selectedItemVeiculo.toString();
+            String[] partsVeiculo = selectedStringVeiculo.split(" ");
+            if (partsVeiculo.length > 0) {
+                try {
+                    Long idVeiculo = Long.valueOf(partsVeiculo[0]);
+                    veiculo = veiculocontroller.findById(idVeiculo);
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Erro ao obter ID do veículo");
+                    return;
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Erro ao obter ID"); 
+                JOptionPane.showMessageDialog(null, "Erro ao obter ID do veículo");
+                return;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Motor não selecionado");
+            JOptionPane.showMessageDialog(null, "Ano não selecionado");
+            return;
         }
-    }  
+
+         
+        if (jComboBox4.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Marca do Motor não selecionada");
+            return;
+        } else {
+            Object selectedItemMotor = jComboBox4.getSelectedItem();
+            if (selectedItemMotor != null) {
+                String selectedStringMotor = selectedItemMotor.toString();
+                String[] partsMotor = selectedStringMotor.split(" ");
+                if (partsMotor.length > 0) {
+                    try {
+                        Long idMotor = Long.valueOf(partsMotor[0]);
+                        motor = motorController.findById(idMotor);
+                    } catch (NumberFormatException e) {
+                        JOptionPane.showMessageDialog(null, "Erro ao obter ID do motor");
+                        return;
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Erro ao obter ID do motor");
+                    return;
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Motor não selecionado");
+                return;
+            }
+        }
+
+        
+        VeiculosMotores veiculosMotores = new VeiculosMotores();
+        veiculosMotores.setMotor(motor);
+        veiculosMotores.setVeiculo(veiculo);
+
+        VeiculosMotoresController veiculosMotoresController = new VeiculosMotoresController();
+        veiculosMotores = veiculosMotoresController.create(veiculosMotores);
+
+        
+        Recomendacoes(veiculosMotores);
+
+        
+        int cadastrarCliente = JOptionPane.showOptionDialog(null, "Deseja cadastrar um cliente para este veículo?", "Confirmação de Cliente",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+
+        if (cadastrarCliente == JOptionPane.YES_OPTION) {
+            // cadstro cliente
+            String nome = JOptionPane.showInputDialog(null, "Digite o nome do cliente:");
+            String email = JOptionPane.showInputDialog(null, "Digite o email do cliente:");
+            String cpf = JOptionPane.showInputDialog(null, "Digite o CPF do cliente:");
+
+            
+            if (nome == null || nome.trim().isEmpty() || email == null || email.trim().isEmpty() || cpf == null || cpf.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Dados do cliente inválidos.");
+                return;
+            }
+
+            
+            Cliente cliente = new Cliente();
+            cliente.setNome(nome);
+            cliente.setEmail(email);
+            cliente.setCpf(cpf);
+
+            clienteController.create(cliente);
+
+            //cadastro do veiculo
+            String placa = JOptionPane.showInputDialog(null, "Digite a placa do veículo:");
+            String kilometragem = JOptionPane.showInputDialog(null, "Digite a kilometragem do veículo:");
+            String ultimaTrocaStr = JOptionPane.showInputDialog(null, "Digite a data da última troca de óleo (YYYY-MM-DD):");
+
+           
+            if (placa == null || placa.trim().isEmpty() || kilometragem == null || kilometragem.trim().isEmpty() || ultimaTrocaStr == null || ultimaTrocaStr.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Dados do veículo inválidos.");
+                return;
+            }
+
+            try {
+                LocalDate ultimaTroca = LocalDate.parse(ultimaTrocaStr);
+
+                
+                VeiculosClientes veiculoCliente = new VeiculosClientes(null, placa.trim(), kilometragem.trim(), ultimaTroca, null, cliente);
+                veiculoCliente = veiculosClientesController.create(veiculoCliente);
+                
+                  VeiculosClientesMotores vc = new VeiculosClientesMotores(null, veiculoCliente, veiculosMotores);
+                  vc = veiculosClientesMotoresController.create(vc);
+
+                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso e vinculado ao veículo!");
+            } catch (DateTimeParseException e) {
+                JOptionPane.showMessageDialog(null, "Formato inválido para data da última troca. Use o formato YYYY-MM-DD.");
+                return;
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Veículo cadastrado com sucesso!");
+        } 
     }//GEN-LAST:event_jbSalvarActionPerformed
 
     private void jbFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFecharActionPerformed
