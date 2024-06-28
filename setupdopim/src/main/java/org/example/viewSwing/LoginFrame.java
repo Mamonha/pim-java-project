@@ -6,6 +6,8 @@ package org.example.viewSwing;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 import org.example.controller.UsuarioController;
 import org.example.model.entities.Usuario;
 
@@ -49,15 +51,21 @@ public class LoginFrame extends javax.swing.JFrame {
 
         jDesktopPane1.setLayout(new java.awt.GridBagLayout());
 
+        jPanel2.setBackground(new java.awt.Color(8, 24, 38));
+
         jLabel1.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Bem Vindo Ao Sistema De Óleo");
 
         jLabel2.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Login");
 
         jLabel3.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Senha");
 
+        jButton1.setBackground(new java.awt.Color(0, 153, 153));
         jButton1.setText("Logar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +73,7 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(0, 153, 102));
         jButton2.setText("Cadastrar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,6 +162,7 @@ public class LoginFrame extends javax.swing.JFrame {
             userSystem = usuario;
             FeatureMain dashboardFinal = new FeatureMain();
             dashboardFinal.setVisible(true);
+            dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Email ou senha incorretos! ");
         }
@@ -208,12 +218,15 @@ public class LoginFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new LoginFrame().setVisible(true);
-            }
+         try {
+        UIManager.setLookAndFeel(new com.formdev.flatlaf.FlatDarculaLaf());
+        SwingUtilities.invokeLater(() -> {
+            LoginFrame frame = new LoginFrame();
+            frame.setVisible(true);
         });
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
